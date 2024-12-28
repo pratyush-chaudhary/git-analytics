@@ -1,6 +1,6 @@
 // Merge data for same users with different emails
 export const mergedData = {
-    "Pratyush Kamal Chaudhary": {
+    "Pratyush Chaudhary": {
         insertions: 83044,
         deletions: 19272,
         files: 1219,
@@ -235,3 +235,98 @@ export const commitsPerDate = [
     { date: '2024-12-27', count: 4 },
     { date: '2024-12-28', count: 1 }
 ];
+
+
+export const authorFileTypeDistribution = {
+    "Deepak Guneja": {
+        emails: ["deepak.guneja@plux.ai", "deepakguneja@gmail.com", "deepakguneja97@gmail.com"],
+        fileTypes: {
+            ".css": { insertions: 604, deletions: 42 },
+            ".html": { insertions: 216, deletions: 105 },
+            ".json": { insertions: 4913, deletions: 189 },
+            ".png": { insertions: 0, deletions: 0 },
+            ".py": { insertions: 21126, deletions: 2984 },
+            ".svg": { insertions: 99, deletions: 0 },
+            ".ts": { insertions: 600, deletions: 192 },
+            ".tsx": { insertions: 7893, deletions: 4015 },
+            ".txt": { insertions: 251, deletions: 18 },
+        },
+    },
+    "Deepak Gupta": {
+        emails: ["deepakguptaplux@gmail.com"],
+        fileTypes: {
+            ".css": { insertions: 304, deletions: 54 },
+            ".html": { insertions: 90, deletions: 42 },
+            ".js": { insertions: 93, deletions: 37 },
+            ".json": { insertions: 4198, deletions: 971 },
+            ".md": { insertions: 108, deletions: 16 },
+            ".png": { insertions: 0, deletions: 0 },
+            ".py": { insertions: 3195, deletions: 1106 },
+            ".svg": { insertions: 986, deletions: 27 },
+            ".ts": { insertions: 250, deletions: 154 },
+            ".tsx": { insertions: 8938, deletions: 3208 },
+            ".txt": { insertions: 31, deletions: 0 },
+            ".webp": { insertions: 0, deletions: 0 },
+            ".xml": { insertions: 9, deletions: 0 },
+        },
+    },
+    "Himanshu Kumar": {
+        emails: ["himanshu.kumar@plux.ai"],
+        fileTypes: {
+            ".conf": { insertions: 14, deletions: 25 },
+            ".dockerignore": { insertions: 6, deletions: 2 },
+            ".env": { insertions: 13, deletions: 1 },
+            ".gitignore": { insertions: 1, deletions: 1 },
+            ".html": { insertions: 70, deletions: 15 },
+            ".js": { insertions: 2, deletions: 1 },
+            ".json": { insertions: 1500, deletions: 193 },
+            ".jsx": { insertions: 7, deletions: 3 },
+            ".md": { insertions: 124, deletions: 15 },
+            ".py": { insertions: 2143, deletions: 713 },
+            ".ts": { insertions: 245, deletions: 78 },
+            ".tsx": { insertions: 1852, deletions: 300 },
+            ".txt": { insertions: 35, deletions: 5 },
+        },
+    },
+    "Pratyush Chaudhary": {
+        emails: [
+            "160696121+plux-coder@users.noreply.github.com",
+            "160696121+pratyush-chaudhary@users.noreply.github.com",
+            "pratyushkc232@gmail.com"
+        ],
+        fileTypes: {
+            ".cjs": { insertions: 86, deletions: 2 },
+            ".conf": { insertions: 120, deletions: 8 },
+            ".css": { insertions: 3997, deletions: 584 },
+            ".csv": { insertions: 18, deletions: 0 },
+            ".env": { insertions: 6, deletions: 2 },
+            ".gitignore": { insertions: 120, deletions: 2 },
+            ".html": { insertions: 4336, deletions: 113 },
+            ".jpeg": { insertions: 0, deletions: 0 },
+            ".js": { insertions: 169, deletions: 12 },
+            ".json": { insertions: 76122, deletions: 11502 },
+            ".jsx": { insertions: 38, deletions: 2 },
+            ".log": { insertions: 3, deletions: 6 },
+            ".md": { insertions: 108, deletions: 20 },
+            ".png": { insertions: 0, deletions: 0 },
+            ".prettierrc": { insertions: 24, deletions: 0 },
+            ".py": { insertions: 43831, deletions: 8891 },
+            ".pylintrc": { insertions: 9, deletions: 0 },
+            ".svg": { insertions: 704, deletions: 0 },
+            ".toml": { insertions: 103, deletions: 9 },
+            ".ts": { insertions: 14999, deletions: 2465 },
+            ".tsx": { insertions: 35215, deletions: 14598 },
+            ".txt": { insertions: 504, deletions: 63 },
+            ".webp": { insertions: 0, deletions: 0 },
+            ".service": { insertions: 24, deletions: 0 },
+            ".yml": { insertions: 36, deletions: 0 },
+        },
+    },
+    "Rakshit Sakhuja": {
+        emails: ["rakshitsakhuja.plux@gmail.com"],
+        fileTypes: {
+            ".gitignore": { insertions: 1, deletions: 0 },
+            ".py": { insertions: 880, deletions: 366 },
+        },
+    },
+};

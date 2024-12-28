@@ -11,6 +11,7 @@ import MonthlyActivityChart from './subcomponents/MonthlyActivityChart';
 import TotalMonthlyCommitsChart from './subcomponents/MonthlyCommitsChart';
 import { mergedData } from './data/commitData';
 import GitStats from './GitStats';
+import AuthorFileTypeAnalytics from './subcomponents/AuthorFileTypeAnalytics';
 
 const EnhancedGitDashboard: React.FC = () => {
 
@@ -89,6 +90,10 @@ const EnhancedGitDashboard: React.FC = () => {
           {/* Detailed Statistics Table */}
           <div className="mt-8">
             <DetailedStatisticsTable mergedData={mergedData} />
+          </div>
+
+          <div className="mt-8">
+            <AuthorFileTypeAnalytics  />
           </div>
 
           {/* Monthly Activity Chart */}
