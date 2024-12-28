@@ -73,42 +73,35 @@ const EnhancedGitDashboard: React.FC = () => {
 
           {/* Contribution Distribution Pie Chart */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Contribution Distribution</h2>
             <ContributionDistributionChart pieData={pieData} totalStats={totalStats} colors={colors} />
           </div>
 
           {/* Commit Distribution */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Commit Distribution</h2>
             <CommitDistributionChart contributionData={contributionData} />
           </div>
 
           {/* Lines Changed Chart */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Lines Changed by Developer</h2>
             <LinesChangedChart contributionData={contributionData} />
           </div>
 
           {/* Detailed Statistics Table */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Detailed Developer Statistics</h2>
             <DetailedStatisticsTable mergedData={mergedData} />
           </div>
 
           {/* Monthly Activity Chart */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Monthly Commit Activity</h2>
             <MonthlyActivityChart monthlyCommitData={monthlyCommitData} mergedData={mergedData} colors={colors} />
           </div>
 
           {/* Total Monthly Commits Chart */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Total Monthly Commits</h2>
             <TotalMonthlyCommitsChart monthlyCommitData={monthlyCommitData} />
           </div>
           {/* Git Stats */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Git Stats</h2>
             <GitStats />
           </div>
         </CardContent>

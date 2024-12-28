@@ -1,75 +1,237 @@
 // Merge data for same users with different emails
 export const mergedData = {
     "Pratyush Kamal Chaudhary": {
-      insertions: 83044,
-      deletions: 19272,
-      files: 1219,
-      commits: 143,
-      emails: [
-        "160696121+plux-coder@users.noreply.github.com",
-        "160696121+pratyush-chaudhary@users.noreply.github.com",
-        "pratyushkc232@gmail.com"
-      ],
-      firstCommit: "2024-03-30",
-      lastCommit: "2024-12-28",
-      monthlyCommits: {
-        "2024-03": 8, "2024-04": 15, "2024-05": 20, "2024-06": 18,
-        "2024-07": 12, "2024-08": 16, "2024-09": 14, "2024-10": 10,
-        "2024-11": 15, "2024-12": 15
-      }
+        insertions: 83044,
+        deletions: 19272,
+        files: 1219,
+        commits: 143,
+        emails: [
+            "160696121+plux-coder@users.noreply.github.com",
+            "160696121+pratyush-chaudhary@users.noreply.github.com",
+            "pratyushkc232@gmail.com"
+        ],
+        firstCommit: "2024-03-30",
+        lastCommit: "2024-12-28",
+        monthlyCommits: {
+            "2024-03": 8, "2024-04": 15, "2024-05": 20, "2024-06": 18,
+            "2024-07": 12, "2024-08": 16, "2024-09": 14, "2024-10": 10,
+            "2024-11": 15, "2024-12": 15
+        }
     },
     "Deepak Guneja": {
-      insertions: 13164,
-      deletions: 2622,
-      files: 279,
-      commits: 44,
-      emails: [
-        "deepakguneja@gmail.com",
-        "deepak.guneja@plux.ai",
-        "deepakguneja97@gmail.com"
-      ],
-      firstCommit: "2024-04-24",
-      lastCommit: "2024-12-27",
-      monthlyCommits: {
-        "2024-04": 5, "2024-05": 8, "2024-06": 6, "2024-07": 4,
-        "2024-08": 5, "2024-09": 4, "2024-10": 4, "2024-11": 4,
-        "2024-12": 4
-      }
+        insertions: 13164,
+        deletions: 2622,
+        files: 279,
+        commits: 44,
+        emails: [
+            "deepakguneja@gmail.com",
+            "deepak.guneja@plux.ai",
+            "deepakguneja97@gmail.com"
+        ],
+        firstCommit: "2024-04-24",
+        lastCommit: "2024-12-27",
+        monthlyCommits: {
+            "2024-04": 5, "2024-05": 8, "2024-06": 6, "2024-07": 4,
+            "2024-08": 5, "2024-09": 4, "2024-10": 4, "2024-11": 4,
+            "2024-12": 4
+        }
     },
     "Himanshu Kumar": {
-      insertions: 6091,
-      deletions: 1396,
-      files: 237,
-      commits: 44,
-      emails: ["himanshu.kumar@plux.ai"],
-      firstCommit: "2024-06-03",
-      lastCommit: "2024-07-23",
-      monthlyCommits: {
-        "2024-06": 24, "2024-07": 20
-      }
+        insertions: 6091,
+        deletions: 1396,
+        files: 237,
+        commits: 44,
+        emails: ["himanshu.kumar@plux.ai"],
+        firstCommit: "2024-06-03",
+        lastCommit: "2024-07-23",
+        monthlyCommits: {
+            "2024-06": 24, "2024-07": 20
+        }
     },
     "Deepak Gupta": {
-      insertions: 18202,
-      deletions: 5615,
-      files: 388,
-      commits: 52,
-      emails: ["deepakguptaplux@gmail.com"],
-      firstCommit: "2024-05-29",
-      lastCommit: "2024-08-16",
-      monthlyCommits: {
-        "2024-05": 10, "2024-06": 15, "2024-07": 15, "2024-08": 12
-      }
+        insertions: 18202,
+        deletions: 5615,
+        files: 388,
+        commits: 52,
+        emails: ["deepakguptaplux@gmail.com"],
+        firstCommit: "2024-05-29",
+        lastCommit: "2024-08-16",
+        monthlyCommits: {
+            "2024-05": 10, "2024-06": 15, "2024-07": 15, "2024-08": 12
+        }
     },
     "Rakshit Sakhuja": {
-      insertions: 653,
-      deletions: 221,
-      files: 8,
-      commits: 4,
-      emails: ["rakshitsakhuja.plux@gmail.com"],
-      firstCommit: "2024-12-26",
-      lastCommit: "2024-12-27",
-      monthlyCommits: {
-        "2024-12": 4
-      }
+        insertions: 653,
+        deletions: 221,
+        files: 8,
+        commits: 4,
+        emails: ["rakshitsakhuja.plux@gmail.com"],
+        firstCommit: "2024-12-26",
+        lastCommit: "2024-12-27",
+        monthlyCommits: {
+            "2024-12": 4
+        }
     }
-  };
+};
+
+
+export const commitsByWeekday = [
+    { label: 'Mon', value: 45 },
+    { label: 'Tue', value: 53 },
+    { label: 'Wed', value: 56 },
+    { label: 'Thu', value: 30 },
+    { label: 'Fri', value: 42 },
+    { label: 'Sat', value: 34 },
+    { label: 'Sun', value: 28 },
+];
+
+export const commitsByHour = [
+    { label: '00', value: 12 },
+    { label: '01', value: 5 },
+    { label: '02', value: 16 },
+    { label: '03', value: 10 },
+    { label: '04', value: 4 },
+    { label: '05', value: 3 },
+    { label: '06', value: 4 },
+    { label: '07', value: 4 },
+    { label: '08', value: 7 },
+    { label: '09', value: 6 },
+    { label: '10', value: 4 },
+    { label: '11', value: 11 },
+    { label: '12', value: 13 },
+    { label: '13', value: 14 },
+    { label: '14', value: 12 },
+    { label: '15', value: 14 },
+    { label: '16', value: 21 },
+    { label: '17', value: 17 },
+    { label: '18', value: 19 },
+    { label: '19', value: 14 },
+    { label: '20', value: 22 },
+    { label: '21', value: 19 },
+    { label: '22', value: 15 },
+    { label: '23', value: 22 },
+];
+
+export const commitsPerDate = [
+    { date: '2024-03-30', count: 1 },
+    { date: '2024-03-31', count: 2 },
+    { date: '2024-04-03', count: 1 },
+    { date: '2024-04-09', count: 1 },
+    { date: '2024-04-13', count: 1 },
+    { date: '2024-04-20', count: 1 },
+    { date: '2024-04-24', count: 3 },
+    { date: '2024-04-25', count: 1 },
+    { date: '2024-04-28', count: 1 },
+    { date: '2024-04-29', count: 2 },
+    { date: '2024-05-03', count: 3 },
+    { date: '2024-05-04', count: 1 },
+    { date: '2024-05-05', count: 3 },
+    { date: '2024-05-06', count: 5 },
+    { date: '2024-05-07', count: 1 },
+    { date: '2024-05-08', count: 5 },
+    { date: '2024-05-10', count: 1 },
+    { date: '2024-05-11', count: 4 },
+    { date: '2024-05-12', count: 6 },
+    { date: '2024-05-17', count: 1 },
+    { date: '2024-05-18', count: 3 },
+    { date: '2024-05-19', count: 2 },
+    { date: '2024-05-21', count: 1 },
+    { date: '2024-05-22', count: 2 },
+    { date: '2024-05-29', count: 2 },
+    { date: '2024-05-30', count: 1 },
+    { date: '2024-05-31', count: 3 },
+    { date: '2024-06-03', count: 4 },
+    { date: '2024-06-04', count: 12 },
+    { date: '2024-06-05', count: 4 },
+    { date: '2024-06-06', count: 1 },
+    { date: '2024-06-07', count: 1 },
+    { date: '2024-06-08', count: 2 },
+    { date: '2024-06-09', count: 6 },
+    { date: '2024-06-10', count: 7 },
+    { date: '2024-06-13', count: 2 },
+    { date: '2024-06-14', count: 4 },
+    { date: '2024-06-15', count: 1 },
+    { date: '2024-06-16', count: 1 },
+    { date: '2024-06-17', count: 4 },
+    { date: '2024-06-18', count: 3 },
+    { date: '2024-06-19', count: 4 },
+    { date: '2024-06-20', count: 2 },
+    { date: '2024-06-21', count: 7 },
+    { date: '2024-06-22', count: 2 },
+    { date: '2024-06-24', count: 3 },
+    { date: '2024-06-25', count: 4 },
+    { date: '2024-06-26', count: 8 },
+    { date: '2024-06-27', count: 8 },
+    { date: '2024-06-28', count: 2 },
+    { date: '2024-06-29', count: 2 },
+    { date: '2024-06-30', count: 2 },
+    { date: '2024-07-01', count: 3 },
+    { date: '2024-07-02', count: 3 },
+    { date: '2024-07-03', count: 1 },
+    { date: '2024-07-04', count: 2 },
+    { date: '2024-07-05', count: 1 },
+    { date: '2024-07-06', count: 2 },
+    { date: '2024-07-08', count: 1 },
+    { date: '2024-07-10', count: 1 },
+    { date: '2024-07-12', count: 1 },
+    { date: '2024-07-13', count: 7 },
+    { date: '2024-07-14', count: 1 },
+    { date: '2024-07-16', count: 5 },
+    { date: '2024-07-17', count: 2 },
+    { date: '2024-07-19', count: 3 },
+    { date: '2024-07-20', count: 2 },
+    { date: '2024-07-23', count: 5 },
+    { date: '2024-07-29', count: 2 },
+    { date: '2024-07-31', count: 1 },
+    { date: '2024-08-01', count: 3 },
+    { date: '2024-08-04', count: 2 },
+    { date: '2024-08-05', count: 3 },
+    { date: '2024-08-06', count: 7 },
+    { date: '2024-08-07', count: 3 },
+    { date: '2024-08-08', count: 2 },
+    { date: '2024-08-09', count: 1 },
+    { date: '2024-08-12', count: 2 },
+    { date: '2024-08-14', count: 1 },
+    { date: '2024-08-15', count: 1 },
+    { date: '2024-08-16', count: 3 },
+    { date: '2024-08-23', count: 2 },
+    { date: '2024-08-27', count: 4 },
+    { date: '2024-08-28', count: 2 },
+    { date: '2024-09-02', count: 1 },
+    { date: '2024-09-03', count: 1 },
+    { date: '2024-09-04', count: 1 },
+    { date: '2024-09-05', count: 1 },
+    { date: '2024-09-06', count: 1 },
+    { date: '2024-09-09', count: 3 },
+    { date: '2024-09-10', count: 2 },
+    { date: '2024-09-11', count: 5 },
+    { date: '2024-09-12', count: 2 },
+    { date: '2024-09-13', count: 1 },
+    { date: '2024-09-17', count: 2 },
+    { date: '2024-09-18', count: 4 },
+    { date: '2024-10-02', count: 1 },
+    { date: '2024-10-07', count: 1 },
+    { date: '2024-10-14', count: 1 },
+    { date: '2024-10-19', count: 1 },
+    { date: '2024-11-07', count: 1 },
+    { date: '2024-11-14', count: 1 },
+    { date: '2024-11-16', count: 1 },
+    { date: '2024-11-18', count: 1 },
+    { date: '2024-11-21', count: 1 },
+    { date: '2024-11-24', count: 1 },
+    { date: '2024-11-25', count: 1 },
+    { date: '2024-11-27', count: 1 },
+    { date: '2024-11-30', count: 1 },
+    { date: '2024-12-03', count: 1 },
+    { date: '2024-12-04', count: 1 },
+    { date: '2024-12-07', count: 1 },
+    { date: '2024-12-08', count: 1 },
+    { date: '2024-12-09', count: 1 },
+    { date: '2024-12-13', count: 3 },
+    { date: '2024-12-18', count: 1 },
+    { date: '2024-12-24', count: 1 },
+    { date: '2024-12-25', count: 2 },
+    { date: '2024-12-26', count: 1 },
+    { date: '2024-12-27', count: 4 },
+    { date: '2024-12-28', count: 1 }
+];
