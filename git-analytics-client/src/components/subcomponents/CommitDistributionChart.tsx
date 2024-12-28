@@ -1,126 +1,107 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/shadcn/card';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/shadcn/card';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 interface ContributionDataItem {
   name: string;
   commits: number;
 }
 
+interface PieDataItem {
+  name: string;
+  value: number;
+}
+
 interface CommitDistributionChartProps {
   contributionData: ContributionDataItem[];
   isLoading?: boolean;
+  colors?: string[]; // Make colors optional and provide a default
 }
 
-const CommitDistributionChart: React.FC<CommitDistributionChartProps> = ({ contributionData, isLoading = false }) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isChartVisible, setIsChartVisible] = useState(false);
+const CommitDistributionChart: React.FC<CommitDistributionChartProps> = ({ contributionData, isLoading = false, colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'] }) => {
+  // Transform contributionData to pieData format
+  const pieData: PieDataItem[] = contributionData.map(item => ({
+    name: item.name,
+    value: item.commits,
+  }));
 
-  const handleMouseEnter = (_, index) => {
-    setActiveIndex(index);
-  };
+  // Calculate total contributions (commits in this case)
+  const totalContributions = pieData.reduce((sum, item) => sum + item.value, 0).toLocaleString();
 
-  const handleMouseLeave = () => {
-    setActiveIndex(null);
-  };
-
-  useEffect(() => {
-    if (!isLoading) {
-      const animationTimeout = setTimeout(() => {
-        setIsChartVisible(true);
-      }, 200);
-      return () => clearTimeout(animationTimeout);
-    }
-  }, [isLoading]);
-
-  const CustomTooltip = ({ active, payload, label }) => {
+  // Custom formatter for the tooltip
+  const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
+      const data = payload[0].payload;
       return (
-        <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-lg transition-opacity duration-200 ease-in-out opacity-100">
-          <p className="font-semibold text-gray-700">{label}</p>
-          <p className="text-purple-600">{`Commits: ${payload[0].value}`}</p>
+        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
+          <p className="font-semibold text-gray-800">{data.name}</p>
+          <p className="text-gray-600">Commits: {data.value.toLocaleString()}</p>
         </div>
       );
     }
-    return (
-      <div className="transition-opacity duration-200 ease-in-out opacity-0 pointer-events-none"></div>
-    );
+    return null;
+  };
+
+  // Custom label formatter for better readability
+  const renderCustomLabel = (entry: PieDataItem) => {
+    const total = pieData.reduce((sum, item) => sum + item.value, 0);
+    const percent = ((entry.value / total) * 100);
+    if (percent < 5) return ''; // Don't show labels for small segments
+    return `${entry.name}: ${percent.toFixed(1)}%`;
   };
 
   return (
-    <Card className="shadow-lg rounded-xl overflow-hidden">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-2xl font-bold text-gray-800 tracking-tight">
-          Commits by Developer
-        </CardTitle>
+    <Card className="w-full shadow-lg rounded-xl overflow-hidden">
+      <CardHeader className="space-y-1 pb-2">
+        <CardTitle className="text-2xl font-bold text-gray-800 tracking-tight">Commits by Developer</CardTitle>
+        <CardDescription className="text-gray-500">
+          Total Commits: {totalContributions}
+        </CardDescription>
       </CardHeader>
-      <CardContent className="pt-4">
+      <CardContent className="h-96">
         {isLoading ? (
-          <div className="h-80 flex items-center justify-center">
+          <div className="h-full flex items-center justify-center">
             <p className="text-lg text-gray-500 animate-pulse">
               Loading chart data...
             </p>
           </div>
         ) : (
-          <div className={`h-80 transition-opacity duration-700 ease-in-out ${isChartVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={contributionData}
-                margin={{ top: 30, right: 10, left: -10, bottom: 15 }} // Adjust left and bottom margins
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={140}
+                innerRadius={60}
+                paddingAngle={5}
+                label={renderCustomLabel}
+                labelLine={false}
+                fill="#8884d8"
               >
-                <defs>
-                  <linearGradient id="colorCommits" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="#82ca9d" stopOpacity={0.2} />
-                  </linearGradient>
-                </defs>
-                <XAxis
-                  dataKey="name"
-                  tick={{ fontSize: "0.75rem", fill: "#374151" }} // Darker text color
-                  angle={-35} // Less steep angle
-                  textAnchor="end"
-                  interval={0}
-                  height={80} // Increased height for labels
-                  dx={-5}  // Shift labels to the left
-                  dy={5}   // Shift labels down slightly
-                />
-                <YAxis
-                  tick={{ fontSize: "0.75rem", fill: "#718096" }}
-                  tickFormatter={(value) =>
-                    value > 1000 ? `${(value / 1000).toFixed(1)}k` : value
-                  }
-                />
-                <Tooltip content={<CustomTooltip />} />
-                <Legend
-                  wrapperStyle={{ fontSize: "0.85rem", color: "#718096" }}
-                  verticalAlign="top"
-                  height={36}
-                />
-                <Bar
-                  dataKey="commits"
-                  fill="url(#colorCommits)"
-                  name="Commits"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {contributionData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={
-                        index === activeIndex ? "#4CAF50" : "url(#colorCommits)"
-                      }
-                      stroke={
-                        index === activeIndex ? "#388E3C" : "transparent"
-                      }
-                      strokeWidth={index === activeIndex ? 2 : 0}
-                    />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+                {pieData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={colors[index % colors.length]}
+                    className="hover:opacity-80 transition-opacity duration-200"
+                  />
+                ))}
+              </Pie>
+              <Tooltip content={<CustomTooltip />} />
+              <Legend
+                layout="horizontal"
+                align="center"
+                verticalAlign="bottom"
+                wrapperStyle={{
+                  paddingTop: '20px'
+                }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
         )}
       </CardContent>
     </Card>

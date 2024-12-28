@@ -1,0 +1,175 @@
+/* AuthorFileTypeAnalytics.module.css */
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controlButton {
+    padding: 10px 15px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.controlButton.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.controlButton:hover {
+    background-color: #ddd;
+}
+
+.fileTypeSelection {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fileTypeSelectionLabel {
+    font-weight: bold;
+}
+
+.fileTypeButtons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.fileTypeButton {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.fileTypeButton.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.fileTypeButton:hover {
+    background-color: #e0e0e0;
+}
+
+.chartSection {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.individualViewSection {
+    width: 100%;
+}
+
+.individualViewTitle {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.authorList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.authorCard {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.authorCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.authorName {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.expandIcon {
+    color: #777;
+    transition: transform 0.2s;
+}
+
+.expandIcon svg {
+    display: block;
+}
+
+.authorCardHeader:hover .expandIcon {
+    color: #555;
+}
+
+.authorDetails {
+    overflow-x: auto;
+}
+
+.authorTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tableHeader,
+.tableCell {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.tableHeader {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controlButton {
+        margin-bottom: 10px;
+    }
+
+    .fileTypeSelection {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .fileTypeButtons {
+        justify-content: flex-start;
+    }
+}

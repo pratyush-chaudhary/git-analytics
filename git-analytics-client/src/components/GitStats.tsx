@@ -19,9 +19,11 @@ const GitStats: React.FC = () => {
           <BarChart data={commitsByHour} yAxisLabel="Hour" type="hour" />
         </ChartCard>
 
-        <ChartCard title="Commit Activity">
-          <Heatmap data={commitsPerDate} />
-        </ChartCard>
+        <div className="md:col-span-2"> 
+          <ChartCard title="Commit Activity">
+            <Heatmap data={commitsPerDate} />
+          </ChartCard>
+        </div>
       </div>
     </div>
   );

@@ -9,9 +9,10 @@ import LinesChangedChart from './subcomponents/LinesChangedChart';
 import DetailedStatisticsTable from './subcomponents/DetailedStatisticsTable';
 import MonthlyActivityChart from './subcomponents/MonthlyActivityChart';
 import TotalMonthlyCommitsChart from './subcomponents/MonthlyCommitsChart';
-import { mergedData } from './data/commitData';
+import { commitsPerDate, mergedData } from './data/commitData';
 import GitStats from './GitStats';
 import AuthorFileTypeAnalytics from './subcomponents/AuthorFileTypeAnalytics';
+import TimeSeriesChart from './subcomponents/TimeSeriesChart';
 
 const EnhancedGitDashboard: React.FC = () => {
 
@@ -68,9 +69,15 @@ const EnhancedGitDashboard: React.FC = () => {
             Repository activity from {new Date('2024-03-30').toLocaleDateString()} to {new Date('2024-12-28').toLocaleDateString()}
           </CardDescription>
         </CardHeader>
+
         <CardContent className='mt-6'>
           {/* Summary Statistics Cards */}
           <SummaryCards totalStats={totalStats} />
+
+          {/* Time Series Chart */}
+          <div className="mt-8">
+            <TimeSeriesChart data={commitsPerDate} />
+          </div>
 
           {/* Contribution Distribution Pie Chart */}
           <div className="mt-8">
@@ -93,7 +100,7 @@ const EnhancedGitDashboard: React.FC = () => {
           </div>
 
           <div className="mt-8">
-            <AuthorFileTypeAnalytics  />
+            <AuthorFileTypeAnalytics />
           </div>
 
           {/* Monthly Activity Chart */}
