@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/shadcn/card';
 import SummaryCards from './subcomponents/SummaryCard';
 import ContributionDistributionChart from './subcomponents/ContributionDistributionChart';
@@ -13,8 +13,45 @@ import { commitsPerDate, mergedData } from './data/commitData';
 import GitStats from './GitStats';
 import AuthorFileTypeAnalytics from './subcomponents/AuthorFileTypeAnalytics';
 import TimeSeriesChart from './subcomponents/TimeSeriesChart';
+import { Button } from '@/components/ui/shadcn/button';
+import LoginForm from './subcomponents/LoginForm';
 
 const EnhancedGitDashboard: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const storedLoginStatus = localStorage.getItem('isLoggedIn');
+    const loginTimestamp = localStorage.getItem('loginTimestamp');
+
+    if (storedLoginStatus === 'true' && loginTimestamp) {
+      const currentTime = Date.now();
+      const fourHours = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
+
+      if (currentTime - parseInt(loginTimestamp) < fourHours) {
+        setIsLoggedIn(true);
+      } else {
+        // Session expired
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('loginTimestamp');
+        setIsLoggedIn(false);
+      }
+    }
+
+    setIsLoading(false);
+  }, []);
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('loginTimestamp', Date.now().toString());
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('loginTimestamp');
+  };
 
   // Calculate total statistics
   const totalStats = {
@@ -58,65 +95,86 @@ const EnhancedGitDashboard: React.FC = () => {
     monthlyCommitData.push(monthData);
   }
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="w-full p-4 space-y-6 bg-gray-100 min-h-screen">
-      <Card className="shadow-lg border-none">
+      <Card className="shadow-lg border-none relative">
+        {/* Logout Button (Absolute Top-Right) */}
+        {isLoggedIn && (
+          <Button onClick={handleLogout} className="absolute top-4 right-4 z-10">
+            Logout
+          </Button>
+        )}
+
         <CardHeader className="pb-0">
-          <CardTitle className="text-2xl font-bold text-gray-800 flex items-center">
-            <span className="mr-2">Plux V0 Analytics Dashboard</span>
-          </CardTitle>
-          <CardDescription className="text-gray-600">
-            Repository activity from {new Date('2024-03-30').toLocaleDateString()} to {new Date('2024-12-28').toLocaleDateString()}
-          </CardDescription>
+          {/* Title and Description */}
+          <div className="flex flex-col">
+            <CardTitle className="text-2xl font-bold text-gray-800 flex items-center">
+              <span className="mr-2">Plux V0 Analytics Dashboard</span>
+            </CardTitle>
+            <CardDescription className="text-gray-600">
+              Repository activity from {new Date('2024-03-30').toLocaleDateString()} to {new Date('2024-12-28').toLocaleDateString()}
+            </CardDescription>
+          </div>
         </CardHeader>
 
-        <CardContent className='mt-6'>
-          {/* Summary Statistics Cards */}
-          <SummaryCards totalStats={totalStats} />
+        {/* Conditional Rendering */}
+        {!isLoggedIn ? (
+          <CardContent>
+            <LoginForm onLoginSuccess={handleLoginSuccess} />
+          </CardContent>
+        ) : (
+          <CardContent className="mt-6">
+            {/* Summary Statistics Cards */}
+            <SummaryCards totalStats={totalStats} />
 
-          {/* Time Series Chart */}
-          <div className="mt-8">
-            <TimeSeriesChart data={commitsPerDate} />
-          </div>
+            {/* Time Series Chart */}
+            <div className="mt-8">
+              <TimeSeriesChart data={commitsPerDate} />
+            </div>
 
-          {/* Contribution Distribution Pie Chart */}
-          <div className="mt-8">
-            <ContributionDistributionChart pieData={pieData} totalStats={totalStats} colors={colors} />
-          </div>
+            {/* Contribution Distribution Pie Chart */}
+            <div className="mt-8">
+              <ContributionDistributionChart pieData={pieData} totalStats={totalStats} colors={colors} />
+            </div>
 
-          {/* Commit Distribution */}
-          <div className="mt-8">
-            <CommitDistributionChart contributionData={contributionData} />
-          </div>
+            {/* Commit Distribution */}
+            <div className="mt-8">
+              <CommitDistributionChart contributionData={contributionData} />
+            </div>
 
-          {/* Lines Changed Chart */}
-          <div className="mt-8">
-            <LinesChangedChart contributionData={contributionData} />
-          </div>
+            {/* Lines Changed Chart */}
+            <div className="mt-8">
+              <LinesChangedChart contributionData={contributionData} />
+            </div>
 
-          {/* Detailed Statistics Table */}
-          <div className="mt-8">
-            <DetailedStatisticsTable mergedData={mergedData} />
-          </div>
+            {/* Detailed Statistics Table */}
+            <div className="mt-8">
+              <DetailedStatisticsTable mergedData={mergedData} />
+            </div>
 
-          <div className="mt-8">
-            <AuthorFileTypeAnalytics />
-          </div>
+            <div className="mt-8">
+              <AuthorFileTypeAnalytics />
+            </div>
 
-          {/* Monthly Activity Chart */}
-          <div className="mt-8">
-            <MonthlyActivityChart monthlyCommitData={monthlyCommitData} mergedData={mergedData} colors={colors} />
-          </div>
+            {/* Monthly Activity Chart */}
+            <div className="mt-8">
+              <MonthlyActivityChart monthlyCommitData={monthlyCommitData} mergedData={mergedData} colors={colors} />
+            </div>
 
-          {/* Total Monthly Commits Chart */}
-          <div className="mt-8">
-            <TotalMonthlyCommitsChart monthlyCommitData={monthlyCommitData} />
-          </div>
-          {/* Git Stats */}
-          <div className="mt-8">
-            <GitStats />
-          </div>
-        </CardContent>
+            {/* Total Monthly Commits Chart */}
+            <div className="mt-8">
+              <TotalMonthlyCommitsChart monthlyCommitData={monthlyCommitData} />
+            </div>
+            {/* Git Stats */}
+            <div className="mt-8">
+              <GitStats />
+            </div>
+          </CardContent>
+        )}
       </Card>
     </div>
   );

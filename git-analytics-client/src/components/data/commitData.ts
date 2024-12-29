@@ -1,79 +1,95 @@
 // Merge data for same users with different emails
 export const mergedData = {
     "Pratyush Chaudhary": {
-        insertions: 83044,
-        deletions: 19272,
-        files: 1219,
-        commits: 143,
+        insertions: 84381, // Updated (63355 + 20293 + 732 + 1)
+        deletions: 19395, // Updated (18470 + 542 + 383 + 0)
+        files: 1237, // Updated (1036 + 151 + 49 + 1)
+        commits: 147, // Updated (114 + 10 + 22 + 1)
         emails: [
             "160696121+plux-coder@users.noreply.github.com",
             "160696121+pratyush-chaudhary@users.noreply.github.com",
             "pratyushkc232@gmail.com"
         ],
-        firstCommit: "2024-03-30",
-        lastCommit: "2024-12-28",
+        firstCommit: "2024-03-30", // Same
+        lastCommit: "2024-12-31", // Updated
         monthlyCommits: {
-            "2024-03": 8, "2024-04": 15, "2024-05": 20, "2024-06": 18,
-            "2024-07": 12, "2024-08": 16, "2024-09": 14, "2024-10": 10,
-            "2024-11": 15, "2024-12": 15
+            "2024-03": 9, // Updated
+            "2024-04": 15, // same
+            "2024-05": 21, // Updated
+            "2024-06": 18, // same
+            "2024-07": 12, // same
+            "2024-08": 16, // same
+            "2024-09": 14, // same
+            "2024-10": 10, // same
+            "2024-11": 15, // same
+            "2024-12": 17 // Updated
         }
     },
     "Deepak Guneja": {
-        insertions: 13164,
-        deletions: 2622,
-        files: 279,
-        commits: 44,
+        insertions: 13164, // Same
+        deletions: 2622, // Same
+        files: 279, // Same
+        commits: 44, // Same
         emails: [
             "deepakguneja@gmail.com",
             "deepak.guneja@plux.ai",
             "deepakguneja97@gmail.com"
         ],
-        firstCommit: "2024-04-24",
-        lastCommit: "2024-12-27",
+        firstCommit: "2024-04-24", // Same
+        lastCommit: "2024-12-27", // Same
         monthlyCommits: {
-            "2024-04": 5, "2024-05": 8, "2024-06": 6, "2024-07": 4,
-            "2024-08": 5, "2024-09": 4, "2024-10": 4, "2024-11": 4,
-            "2024-12": 4
+            "2024-04": 5, // Same
+            "2024-05": 8, // Same
+            "2024-06": 6, // Same
+            "2024-07": 4, // Same
+            "2024-08": 5, // Same
+            "2024-09": 4, // Same
+            "2024-10": 4, // Same
+            "2024-11": 4, // Same
+            "2024-12": 4 // Same
         }
     },
     "Himanshu Kumar": {
-        insertions: 6091,
-        deletions: 1396,
-        files: 237,
-        commits: 44,
+        insertions: 6091, // Same
+        deletions: 1396, // Same
+        files: 237, // Same
+        commits: 44, // Same
         emails: ["himanshu.kumar@plux.ai"],
-        firstCommit: "2024-06-03",
-        lastCommit: "2024-07-23",
+        firstCommit: "2024-06-03", // Same
+        lastCommit: "2024-07-23", // Same
         monthlyCommits: {
-            "2024-06": 24, "2024-07": 20
+            "2024-06": 24, // Same
+            "2024-07": 20 // Same
         }
     },
     "Deepak Gupta": {
-        insertions: 18202,
-        deletions: 5615,
-        files: 388,
-        commits: 52,
+        insertions: 18202, // Same
+        deletions: 5615, // Same
+        files: 388, // Same
+        commits: 52, // Same
         emails: ["deepakguptaplux@gmail.com"],
-        firstCommit: "2024-05-29",
-        lastCommit: "2024-08-16",
+        firstCommit: "2024-05-29", // Same
+        lastCommit: "2024-08-16", // Same
         monthlyCommits: {
-            "2024-05": 10, "2024-06": 15, "2024-07": 15, "2024-08": 12
+            "2024-05": 10, // Same
+            "2024-06": 15, // Same
+            "2024-07": 15, // Same
+            "2024-08": 12 // Same
         }
     },
     "Rakshit Sakhuja": {
-        insertions: 653,
-        deletions: 221,
-        files: 8,
-        commits: 4,
+        insertions: 966, // Updated
+        deletions: 392, // Updated
+        files: 13, // Updated
+        commits: 6, // Updated
         emails: ["rakshitsakhuja.plux@gmail.com"],
-        firstCommit: "2024-12-26",
-        lastCommit: "2024-12-27",
+        firstCommit: "2024-12-26", // Same
+        lastCommit: "2024-12-31", // Updated
         monthlyCommits: {
-            "2024-12": 4
+            "2024-12": 6 // Updated
         }
     }
 };
-
 
 export const commitsByWeekday = [
     { label: 'Mon', value: 45 },
@@ -233,9 +249,10 @@ export const commitsPerDate = [
     { date: '2024-12-25', count: 2 },
     { date: '2024-12-26', count: 1 },
     { date: '2024-12-27', count: 4 },
-    { date: '2024-12-28', count: 1 }
+    { date: '2024-12-28', count: 2 }, // Updated: Previously had count: 1
+    { date: '2024-12-30', count: 1 }, // New entry added from new data
+    { date: '2024-12-31', count: 3 }  // New entry added from new data
 ];
-
 
 export const authorFileTypeDistribution = {
     "Deepak Guneja": {
