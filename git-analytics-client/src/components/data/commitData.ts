@@ -1,52 +1,54 @@
 // Merge data for same users with different emails
 export const mergedData = {
     "Pratyush Chaudhary": {
-        insertions: 84381, // Updated (63355 + 20293 + 732 + 1)
-        deletions: 19395, // Updated (18470 + 542 + 383 + 0)
-        files: 1237, // Updated (1036 + 151 + 49 + 1)
-        commits: 147, // Updated (114 + 10 + 22 + 1)
+        insertions: 78404 + 20293 + 732 + 1, // Updated (78404 + 20293 + 732 + 1)
+        deletions: 48531 + 542 + 383 + 0, // Updated (48531 + 542 + 383 + 0)
+        files: 1158 + 151 + 49 + 1, // Updated (1158 + 151 + 49 + 1)
+        commits: 124 + 10 + 22 + 1, // Updated (124 + 10 + 22 + 1)
         emails: [
             "160696121+plux-coder@users.noreply.github.com",
             "160696121+pratyush-chaudhary@users.noreply.github.com",
             "pratyushkc232@gmail.com"
         ],
         firstCommit: "2024-03-30", // Same
-        lastCommit: "2024-12-31", // Updated
+        lastCommit: "2025-01-10", // Updated
         monthlyCommits: {
-            "2024-03": 9, // Updated
-            "2024-04": 15, // same
-            "2024-05": 21, // Updated
-            "2024-06": 18, // same
+            "2024-03": 1 + 8, // Updated
+            "2024-04": 15 + 4, // updated
+            "2024-05": 21 + 2, // Updated
+            "2024-06": 18 + 4, // updated
             "2024-07": 12, // same
             "2024-08": 16, // same
             "2024-09": 14, // same
             "2024-10": 10, // same
             "2024-11": 15, // same
-            "2024-12": 17 // Updated
+            "2024-12": 17, // Updated
+            "2025-01": 10
         }
     },
     "Deepak Guneja": {
-        insertions: 13164, // Same
-        deletions: 2622, // Same
-        files: 279, // Same
-        commits: 44, // Same
+        insertions: 10324 + 7813 + 2470, // updated
+        deletions: 2488 + 1335 + 31, // updated
+        files: 235 + 152 + 26, // updated
+        commits: 34 + 11 + 6, // updated
         emails: [
             "deepakguneja@gmail.com",
             "deepak.guneja@plux.ai",
             "deepakguneja97@gmail.com"
         ],
         firstCommit: "2024-04-24", // Same
-        lastCommit: "2024-12-27", // Same
+        lastCommit: "2025-01-10", // updated
         monthlyCommits: {
-            "2024-04": 5, // Same
-            "2024-05": 8, // Same
-            "2024-06": 6, // Same
-            "2024-07": 4, // Same
-            "2024-08": 5, // Same
-            "2024-09": 4, // Same
-            "2024-10": 4, // Same
-            "2024-11": 4, // Same
-            "2024-12": 4 // Same
+            "2024-04": 5 + 2, // updated
+            "2024-05": 8 + 1, // updated
+            "2024-06": 6 + 2, // updated
+            "2024-07": 4 + 5, // updated
+            "2024-08": 5 + 3, // updated
+            "2024-09": 4 + 2, // updated
+            "2024-10": 4 + 2, // updated
+            "2024-11": 4 + 3, // updated
+            "2024-12": 4 + 4, // updated
+            "2025-01": 4
         }
     },
     "Himanshu Kumar": {
@@ -78,33 +80,34 @@ export const mergedData = {
         }
     },
     "Rakshit Sakhuja": {
-        insertions: 966, // Updated
-        deletions: 392, // Updated
-        files: 13, // Updated
-        commits: 6, // Updated
+        insertions: 2282, // Updated
+        deletions: 688, // Updated
+        files: 41, // Updated
+        commits: 9, // Updated
         emails: ["rakshitsakhuja.plux@gmail.com"],
         firstCommit: "2024-12-26", // Same
-        lastCommit: "2024-12-31", // Updated
+        lastCommit: "2025-01-08", // Updated
         monthlyCommits: {
-            "2024-12": 6 // Updated
+            "2024-12": 6, // Updated
+            "2025-01": 3
         }
     }
 };
 
 export const commitsByWeekday = [
-    { label: 'Mon', value: 45 },
-    { label: 'Tue', value: 53 },
-    { label: 'Wed', value: 56 },
-    { label: 'Thu', value: 30 },
-    { label: 'Fri', value: 42 },
-    { label: 'Sat', value: 34 },
+    { label: 'Mon', value: 48 },
+    { label: 'Tue', value: 59 },
+    { label: 'Wed', value: 61 },
+    { label: 'Thu', value: 31 },
+    { label: 'Fri', value: 49 },
+    { label: 'Sat', value: 37 },
     { label: 'Sun', value: 28 },
 ];
 
 export const commitsByHour = [
-    { label: '00', value: 12 },
-    { label: '01', value: 5 },
-    { label: '02', value: 16 },
+    { label: '00', value: 14 },
+    { label: '01', value: 7 },
+    { label: '02', value: 17 },
     { label: '03', value: 10 },
     { label: '04', value: 4 },
     { label: '05', value: 3 },
@@ -112,20 +115,20 @@ export const commitsByHour = [
     { label: '07', value: 4 },
     { label: '08', value: 7 },
     { label: '09', value: 6 },
-    { label: '10', value: 4 },
+    { label: '10', value: 5 },
     { label: '11', value: 11 },
-    { label: '12', value: 13 },
+    { label: '12', value: 14 },
     { label: '13', value: 14 },
-    { label: '14', value: 12 },
-    { label: '15', value: 14 },
-    { label: '16', value: 21 },
-    { label: '17', value: 17 },
-    { label: '18', value: 19 },
-    { label: '19', value: 14 },
-    { label: '20', value: 22 },
+    { label: '14', value: 15 },
+    { label: '15', value: 15 },
+    { label: '16', value: 22 },
+    { label: '17', value: 22 },
+    { label: '18', value: 20 },
+    { label: '19', value: 15 },
+    { label: '20', value: 24 },
     { label: '21', value: 19 },
-    { label: '22', value: 15 },
-    { label: '23', value: 22 },
+    { label: '22', value: 16 },
+    { label: '23', value: 25 },
 ];
 
 export const commitsPerDate = [
@@ -249,9 +252,17 @@ export const commitsPerDate = [
     { date: '2024-12-25', count: 2 },
     { date: '2024-12-26', count: 1 },
     { date: '2024-12-27', count: 4 },
-    { date: '2024-12-28', count: 2 }, // Updated: Previously had count: 1
-    { date: '2024-12-30', count: 1 }, // New entry added from new data
-    { date: '2024-12-31', count: 3 }  // New entry added from new data
+    { date: '2024-12-28', count: 2 },
+    { date: '2024-12-30', count: 1 },
+    { date: '2024-12-31', count: 3 },
+    { date: '2025-01-01', count: 1 },
+    { date: '2025-01-03', count: 3 },
+    { date: '2025-01-04', count: 2 },
+    { date: '2025-01-06', count: 2 },
+    { date: '2025-01-07', count: 3 },
+    { date: '2025-01-08', count: 4 },
+    { date: '2025-01-09', count: 1 },
+    { date: '2025-01-10', count: 4 }
 ];
 
 export const authorFileTypeDistribution = {
